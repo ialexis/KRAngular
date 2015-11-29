@@ -1,0 +1,135 @@
+<!--<header>
+    <div  class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+                    <span class="sr-only">Navigation Bar</span>
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" ui-sref="root.home"><li class="fa fa-home"></li></a>
+            </div>
+            <div class="navbar-collapse collapse navbar-responsive-collapse" collapse="navCollapsed">
+                <ul class="nav navbar-nav navbar-right">
+                    <li ui-sref-active="active">
+                        <a ui-sref="root.home" ng-click="navCollapsed = !navCollapsed">
+                            <i class="fa fa-home"></i>
+                            Home</a>
+                    </li>
+                    <li class="dropdown" dropdown>
+                        <a href="#" dropdown-toggle><i class="fa fa-cog"></i>  Tools <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu" ng-click="navCollapsed = true">
+                            <li ui-sref-active="active">
+                                <a ui-sref="root.auth" ng-click="navCollapsed = !navCollapsed">
+                                    <i class="fa fa-sign-in"></i>
+                                    Social Login</a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a ui-sref="root.animate" ng-click="navCollapsed = !navCollapsed">
+                                    <i class="fa fa-search"></i>
+                                    Animations</a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a ui-sref="root.infinite" ng-click="navCollapsed = !navCollapsed">
+                                    <i class="fa fa-th"></i>
+                                    InfiniteScroll</a>
+                            </li>
+                            &lt;!&ndash; <li class="divider"></li> &ndash;&gt;
+                            <li ui-sref-active="active">
+                                <a ui-sref="root.apitest" ng-click="navCollapsed = !navCollapsed">
+                                    <i class="fa fa-gears"></i>
+                                    Api request Example</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li ui-sref-active="active" ng-click="navCollapsed = !navCollapsed">
+                        <a ui-sref="root.about">
+                            <i class="fa fa-angellist"></i>
+                            About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+</header>-->
+<nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+
+        <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" ui-sref='root.home'><i class="fa fa-home"></i> WallaDog</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+
+        <ul class="nav navbar-nav">
+            <li><a href="#" ui-sref="root.home">Vender</a></li>
+            <li><a href="#" ui-sref="root.about">Comprar</a></li>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Busca en Walladog">
+                </div>
+                <button type="submit" class="btn btn-default">Buscar</button>
+            </form>
+            <li class="dropdown" dropdown>
+                <a href="#" dropdown-toggle><i class="fa fa-cog"></i>  DEMOS <b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu" ng-click="navCollapsed = true">
+                    <li ui-sref-active="active">
+                        <a ui-sref="root.auth" ng-click="navCollapsed = !navCollapsed">
+                            <i class="fa fa-sign-in"></i>
+                            Social Login</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="root.infinite" ng-click="navCollapsed = !navCollapsed">
+                            <i class="fa fa-th"></i>
+                            InfiniteScroll</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="root.apitest" ng-click="navCollapsed = !navCollapsed">
+                            <i class="fa fa-gears"></i>
+                            Api request Example</a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Link</a></li>
+            <li class="dropdown" dropdown>
+                <a href="#" dropdown-toggle><i class="fa fa-user"></i>  Usuarios <b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu" ng-click="navCollapsed = true">
+                    <li ui-sref-active="active">
+                        <a ui-sref="root.auth" ng-click="navCollapsed = !navCollapsed">
+                            <i class="fa fa-sign-in"></i>
+                            Social Login</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="root.logout" ng-click="navCollapsed = !navCollapsed">
+                            <i class="fa fa-sign-out"></i>
+                            Logout</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="root.infinite" ng-click="navCollapsed = !navCollapsed">
+                            <i class="fa fa-shopping-basket"></i>
+                            Transactions</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="root.myaccount" ng-click="navCollapsed = !navCollapsed">
+                            <i class="fa fa-user-md"></i>
+                            User Area</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>

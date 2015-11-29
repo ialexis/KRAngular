@@ -14,9 +14,9 @@
                             load_data: (['globalService', '$q', '$log',
                                 function (globalService, $q, $log) {
                                     $log.warn('App::ResolveData::');
-
+                                    //Simpli example
                                     var def = $q.defer();
-                                    globalService.api('?json=%5BJSON-code-to-validate%5D').get(function (data) {
+                                    globalService.api().get(function (data) {
                                         def.resolve(data);
                                         $log.warn(data);
                                     }, function (err) {
@@ -71,18 +71,16 @@
 
 }(angular.module("KRAngular", [
     'ngResource',
-    'ngAnimate',
     'globalService',
     'KRAngular.home',
+    'KRAngular.customer',
     'KRAngular.about',
-    'KRAngular.apitest',
-    'KRAngular.uibootstrap',
-    'KRAngular.animate',
     'KRAngular.infinite',
     'KRAngular.auth',
     'ui.bootstrap',
     'templates-app',
     'templates-common',
+    'templates-hf',
     'ui.router.state',
     'ui.router',
     'cInterceptor'

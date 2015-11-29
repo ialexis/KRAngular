@@ -46,6 +46,7 @@ module.exports = function (grunt) {
             coffeeunit: ['src/**/*.spec.coffee'],
             appTemplates: ['src/app/**/*.tpl.html'],
             commonTemplates: ['src/common/**/*.tpl.html'],
+            hfTemplates: ['src/app/*.tpl.html'],
             html: ['src/index.html', 'src/header.tpl.html', 'src/footer.tpl.html'],
             less: 'src/less/main.less'
         },
@@ -372,6 +373,13 @@ module.exports = function (grunt) {
                 },
                 src: ['<%= app_files.commonTemplates %>'],
                 dest: '<%= build_dir %>/templates-common.js'
+            },
+            hf: {
+                options: {
+                    base: 'src/'
+                },
+                src: ['<%= app_files.hfTemplates %>'],
+                dest: '<%= build_dir %>/templates-hf.js'
             }
         },
         /**
@@ -393,6 +401,7 @@ module.exports = function (grunt) {
                     '<%= build_dir %>/src/**/*.js',
                     '<%= html2js.common.dest %>',
                     '<%= html2js.app.dest %>',
+                    '<%= html2js.hf.dest %>',
                     '<%= vendor_files.css %>',
                     '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css'
                 ]
@@ -410,18 +419,6 @@ module.exports = function (grunt) {
                     '<%= vendor_files.css2 %>',
                     '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css'
                 ]
-            }
-        },
-        //Deprecated. Using connect for connect rewrite 
-        express: {
-            devServer: {
-                options: {
-                    port: 9000,
-                    hostname: 'localhost',
-                    serverreload: false,
-                    bases: 'build',
-                    livereload: true
-                }
             }
         },
         //Use a local/virtualhost to use angular-facebook
@@ -491,6 +488,7 @@ module.exports = function (grunt) {
                     '<%= vendor_files.js %>',
                     '<%= html2js.app.dest %>',
                     '<%= html2js.common.dest %>',
+                    '<%= html2js.hf.dest %>',
                     '<%= test_files.js %>'
                 ]
             }
@@ -566,19 +564,13 @@ module.exports = function (grunt) {
                 tasks: ['index:build']
             },
             /**
-             * When header/footer.tpl.html changes, we need to compile it.
-             */
-            html2: {
-                files: ['<%= app_files.html %>'],
-                tasks: ['index:build']
-            },
-            /**
              * When our templates change, we only rewrite the template cache.
              */
             tpls: {
                 files: [
                     '<%= app_files.appTemplates %>',
-                    '<%= app_files.commonTemplates %>'
+                    '<%= app_files.commonTemplates %>',
+                    '<%= app_files.hfTemplates %>'
                 ],
                 tasks: ['html2js']
             },
@@ -623,6 +615,7 @@ module.exports = function (grunt) {
     /** **************************** Project Configuration ****************************** */
     grunt.initConfig(_.extend(taskConfig, fileConfig));
 
+
     // In order to make it safe to just compile or copy *only* what was changed,
     // we need to ensure we are starting from a clean, fresh build. So we rename
     // the 'watch' task to 'delta' (that's why the configuration var above is
@@ -637,7 +630,7 @@ module.exports = function (grunt) {
 
     // The 'build' task gets your app ready to run for development and testing.
     grunt.registerTask('build', [
-        'clean:all', 'html2js', 'jshint', 'coffeelint', 'coffee', 'less:build',
+        'clean:all','hftemplates', 'html2js', 'jshint', 'coffeelint', 'coffee', 'less:build',
         'concat:build_css', 'copy:build_app_assets', 'copy:build_vendor_assets', 'copy:extra_templates',
         'copy:build_appjs', 'copy:build_vendorjs', 'ngAnnotate:build', 'index:build', 'karmaconfig',
         'karma:continuous'
@@ -662,6 +655,32 @@ module.exports = function (grunt) {
             return file.match(/\.css$/);
         });
     }
+
+    // Grunt process templates task
+    grunt.registerTask('hftemplates', 'Process HF templates', function () {
+        grunt.file.copy('src/app/header.tpl.html', 'src/app/header.tpl.html', {
+            process: function (contents, path) {
+                return grunt.template.process(contents, {
+                    data: {
+                        version: grunt.config('pkg.version'),
+                        author: grunt.config('pkg.author'),
+                        date: grunt.template.today("yyyy")
+                    }
+                });
+            }
+        });
+        grunt.file.copy('src/app/footer.tpl.html', 'src/app/footer.tpl.html', {
+            process: function (contents, path) {
+                return grunt.template.process(contents, {
+                    data: {
+                        version: grunt.config('pkg.version'),
+                        author: grunt.config('pkg.author'),
+                        date: grunt.template.today("yyyy")
+                    }
+                });
+            }
+        });
+    });
 
     // The index.html template includes the stylesheet and javascript sources
     // based on dynamic names calculated in this Gruntfile. This task assembles
@@ -695,34 +714,7 @@ module.exports = function (grunt) {
                 });
             }
         });
-        grunt.file.copy('src/header.tpl.html', this.data.dir + '/header.tpl.html', {
-            process: function (contents, path) {
-                // These are the variables looped over in our index.html exposed as "scripts", "styles", and "version"
-                return grunt.template.process(contents, {
-                    data: {
-                        scripts: jsFiles,
-                        styles: cssFiles,
-                        version: grunt.config('pkg.version'),
-                        author: grunt.config('pkg.author'),
-                        date: grunt.template.today("yyyy")
-                    }
-                });
-            }
-        });
-        grunt.file.copy('src/footer.tpl.html', this.data.dir + '/footer.tpl.html', {
-            process: function (contents, path) {
-                // These are the variables looped over in our index.html exposed as "scripts", "styles", and "version"
-                return grunt.template.process(contents, {
-                    data: {
-                        scripts: jsFiles,
-                        styles: cssFiles,
-                        version: grunt.config('pkg.version'),
-                        author: grunt.config('pkg.author'),
-                        date: grunt.template.today("yyyy")
-                    }
-                });
-            }
-        });
+
     });
 
     // In order to avoid having to specify manually the files needed for karma to
