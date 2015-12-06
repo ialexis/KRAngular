@@ -88,7 +88,7 @@ module.exports = function (grunt) {
                 'vendor/ngInfiniteScroll/build/ng-infinite-scroll.js',
                 'vendor/angular-facebook/lib/angular-facebook.js',
                 'vendor/angular-deckgrid/angular-deckgrid.js',
-                'vendor/ng-material-floating-button/mfb/dist/mfb.js'
+                'vendor/ng-material-floating-button/src/mfb-directive.js'
             ],
             css: [
                 'vendor/ng-material-floating-button/mfb/dist/mfb.css'
