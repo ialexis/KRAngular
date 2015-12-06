@@ -23,13 +23,15 @@
   ],
   "dependencies": {
     "angular": "~1.4.8",
-    "angular-bootstrap": "~0.12.0",
+    "angular-bootstrap": "~0.14.3",
     "angular-resource": "~1.4.8",
     "angular-animate": "~1.4.8",
     "angular-ui-router": "~0.2.13",
     "angular-mocks": "~1.4.8",
     "bootstrap": "~3.3.2",
     "ngInfiniteScroll": "~1.2.0",
-    "angular-facebook": "~0.2.3"
+    "angular-facebook": "~0.2.3",
+    "angular-deckgrid": "~0.5.0",
+    "ng-material-floating-button": "ng-mfb#~0.6.2"
   }
 }

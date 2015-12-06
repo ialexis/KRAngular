@@ -3,7 +3,7 @@
  */
 
 //URL from api to test api resources
-var API_URL = 'http://apitest.mequedouno.com/shops';
+var API_URL = 'https://mqapi.mequedouno.com/shops';
 
 //Send custom header in your request and response headers
 //Used for example to send auth-cookies in headers

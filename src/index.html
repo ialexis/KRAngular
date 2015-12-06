@@ -4,6 +4,8 @@
         <!-- Base href to remove hashtag from URL -->
         <base href="/">
 
+        <meta name="viewport" content="width=device-width">
+
         <title ng-bind="pageTitle"></title>
 
         <!-- Font awesome -->
@@ -21,8 +23,8 @@
     <body>
         <!-- <div class="container menu" ui-view="main"></div> -->
         <div ui-view="header" class=""></div>
-        <div class="container" style="text-align: center;">
-            <div ui-view="container" class="well" style="width:98%;"></div>
+        <div class="container-fluid" style="text-align: center;width:99%;">
+            <div ui-view="container" class="" style="text-align: center;"></div>
         </div>
         <div ui-view="footer" class="" style="margin-top:20px"></div>
     </body>

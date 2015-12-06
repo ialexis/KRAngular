@@ -86,9 +86,12 @@ module.exports = function (grunt) {
                 'vendor/angular-ui-utils/modules/route/route.js',
                 'vendor/angular-animate/angular-animate.js',
                 'vendor/ngInfiniteScroll/build/ng-infinite-scroll.js',
-                'vendor/angular-facebook/lib/angular-facebook.js'
+                'vendor/angular-facebook/lib/angular-facebook.js',
+                'vendor/angular-deckgrid/angular-deckgrid.js',
+                'vendor/ng-material-floating-button/mfb/dist/mfb.js'
             ],
             css: [
+                'vendor/ng-material-floating-button/mfb/dist/mfb.css'
             ],
             css2: [
                 'vendor/fontawesome/css/font-awesome.css'

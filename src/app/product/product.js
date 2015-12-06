@@ -12,7 +12,7 @@
                             }
                         },
                         data: {
-                            pageTitle: 'Customer'
+                            pageTitle: 'Product'
                         }
                     });
         }]);

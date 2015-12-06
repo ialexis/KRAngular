@@ -72,8 +72,10 @@
 }(angular.module("KRAngular", [
     'ngResource',
     'globalService',
+    'genericDirectives',
     'KRAngular.home',
     'KRAngular.customer',
+    'KRAngular.product',
     'KRAngular.about',
     'KRAngular.infinite',
     'KRAngular.auth',
@@ -83,5 +85,6 @@
     'templates-hf',
     'ui.router.state',
     'ui.router',
-    'cInterceptor'
+    'cInterceptor',
+    'ng-mfb'
 ])));
