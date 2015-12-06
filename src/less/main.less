@@ -43,6 +43,7 @@
 @import '../app/home/home.less';
 
 @import '../app/infinite/infinite.less';
+@import '../app/product/product.less';
 
 .container.menu {
     margin-top: 40px;
@@ -194,9 +195,9 @@ only screen and (max-width : 480px) {
 }
 
 .photo {
-  background:#fff url(images/spinner.gif) center 30px no-repeat;
+  //background:#fff url(images/spinner.gif) center 30px no-repeat;
   border:1px solid rgba(0, 0, 0, .15);
-  border-radius:3px;
+  border-radius:6px;
   margin:0 10px 10px 0;
   position:relative;
   width:201px;
@@ -233,3 +234,21 @@ only screen and (max-width : 480px) {
   padding:5px;
 }
 
+.circleBase {
+  position: fixed;
+  bottom:50px;
+  margin-left:50%;
+  border-radius: 50%;
+  //behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+}
+
+.type1 {
+  width: 50px;
+  height: 50px;
+  background: #ff4f57;
+  border: 2px solid #d7d7d7;
+}
+
+.borderradius {
+  border-radius: 3px;
+}

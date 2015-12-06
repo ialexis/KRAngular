@@ -1,13 +1,5 @@
-<div class="photo">
-    <a href="" data-ng-click="card.showIndex = !card.showIndex">
-        <div class="photo-index" data-ng-if="card.showIndex">
-            <p>The $index of the card is</p>
-
-            <p class="balloon-wrapper">
-                <span class="balloon">{{card.$index}}</span>
-            </p>
-        </div>
-
+<div class="photo" ui-sref="root.product">
+<a href="#">
         <div class="photo-wrapper">
             <img class="img-rounded" src="" data-ng-src="{{card.src}}">
         </div>
@@ -25,5 +17,5 @@
                 <p>XX productos</p>
             </div>
         </div>
-    </a>
+</a>
 </div>
