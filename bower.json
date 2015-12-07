@@ -32,6 +32,8 @@
     "ngInfiniteScroll": "~1.2.0",
     "angular-facebook": "~0.2.3",
     "angular-deckgrid": "~0.5.0",
-    "ngmap": "~1.14.16"
+    "ngmap": "~1.14.16",
+    "lodash": "~3.10.1",
+    "angularjs-dropdown-multiselect": "~1.5.2"
   }
 }

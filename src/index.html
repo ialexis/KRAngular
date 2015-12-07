@@ -11,6 +11,9 @@
         <!-- Font awesome -->
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
         <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
         <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
 
@@ -23,6 +26,8 @@
         <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>-->
         <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 
+        <script type="text/javascript" src="https://rawgit.com/dotansimha/angularjs-dropdown-multiselect/master/src/angularjs-dropdown-multiselect.js"></script>
+
     </head>
 
 
@@ -32,8 +37,8 @@
             <div ui-view="container" class="" style="text-align: center;"></div>
         </div>
         <div ui-view="footer" class="" style="margin-top:20px"></div>
-        <div class="circleBase type1" style="cursor:pointer;" ng-show="showCameraIcon">
-            <i class="fa fa-camera fa-2x" style="margin-left:8px;margin-top:8px;color: #ffffff;float:left;"></i>
+        <div class="circleBase type1" style="cursor:pointer;" ng-show="showCameraIcon" ui-sref="root.addproduct">
+            <i class="fa fa-shopping-cart fa-2x" style="margin-left:8px;margin-top:8px;color: #ffffff;float:left;"></i>
         </div>
     </body>
 </html>

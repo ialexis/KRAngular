@@ -114,5 +114,7 @@
     'templates-hf',
     'ui.router.state',
     'ui.router',
-    'cInterceptor'
+    'cInterceptor',
+    'ngAnimate',
+    'angularjs-dropdown-multiselect'
 ])));

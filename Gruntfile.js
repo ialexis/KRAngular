@@ -88,7 +88,9 @@ module.exports = function (grunt) {
                 'vendor/ngInfiniteScroll/build/ng-infinite-scroll.js',
                 'vendor/angular-facebook/lib/angular-facebook.js',
                 'vendor/angular-deckgrid/angular-deckgrid.js',
-                'vendor/ngmap/build/scripts/ng-map.min.js'
+                'vendor/ngmap/build/scripts/ng-map.min.js',
+                'vendor/lodash/lodash.js',
+                'vendor/angularjs-dropdown-multiselect/dist/angularjs-dropdown-multiselect.min.js'
             ],
             css: [
             ],

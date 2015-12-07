@@ -9,16 +9,15 @@
             <span class="icon-bar"></span>
         </button>
         <!--<a class="navbar-brand" ui-sref='root.home'><i class="fa fa-home"></i> WallaDog</a>-->
-        <a class="navbar-brand" ui-sref='root.home'><img style="display:inline-block" width="25" height="25" src="assets/logos/walladogt.png"> <span style="color:white;font-size:1.1em;font-family:'Lobster';">WallaDog</span></a>
+        <a class="navbar-brand" ui-sref='root.home'><img style="display:inline-block" width="45" height="45" src="assets/logos/walladogt.png"> <span style="color:white;font-size:1.1em;font-family:'Lobster';">WallaDog</span></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
-
-        <ul class="nav navbar-nav nav-center">
+        <ul class="nav navbar-nav nav-center hidden-xs">
             <div class="btn-group" style="margin-top:7px;">
                 <div class="btn-group" uib-dropdown is-open="status.isopen1">
-                    <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
+                    <button id="single-button" type="button" class="btn btn-primary btnnavbar" uib-dropdown-toggle ng-disabled="disabled">
                         Categoría <span class="caret"></span>
                     </button>
                     <ul class="uib-dropdown-menu" role="menu" aria-labelledby="single-button">
@@ -33,7 +32,7 @@
                     <input type="text" class="form-control" placeholder="Busca en Walladog" style="border-radius:0px;">
                 </div>
                 <div class="btn-group" uib-dropdown is-open="status.isopen2">
-                    <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
+                    <button id="single-button" type="button" class="btn btn-primary btnnavbar" uib-dropdown-toggle ng-disabled="disabled">
                         Distancia <span class="caret"></span>
                     </button>
                     <ul class="uib-dropdown-menu" role="menu" aria-labelledby="single-button">
@@ -47,9 +46,9 @@
             </div>
         </ul>
         <ul class="nav navbar-nav navbar-right" style="margin-right:5px;">
-            <li class="dropdown" uib-dropdown>
-                <div class="btn-group" uib-dropdown is-open="status.isopen3">
-                    <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
+            <li class="dropdown hidden-xs" uib-dropdown>
+                <div class="btn-group" uib-dropdown is-open="status.isopen3" style="margin-top:7px;">
+                    <button id="single-button" type="button" class="btn btn-primary btnnavbar" uib-dropdown-toggle ng-disabled="disabled">
                         Usuarios <i class="fa fa-user"></i>
                     </button>
                     <ul class="uib-dropdown-menu" role="menu" aria-labelledby="single-button">
@@ -76,30 +75,36 @@
                         </li>
                     </ul>
                 </div>
-                <!--<a href="#" uib-dropdown-toggle><i class="fa fa-user"></i> Usuarios <b class="caret"></b></a>
-                <ul class="dropdown-menu" role="menu" ng-click="navCollapsed = true">
+            </li>
+            <li class="dropdown hidden-lg hidden-md hidden-sm">
+                <ul class="nav navbar-nav">
                     <li ui-sref-active="active">
-                        <a ui-sref="root.auth" ng-click="navCollapsed = !navCollapsed">
+                        <a ui-sref="root.auth" ng-click="navCollapsed = !navCollapsed" style="color:white;">
                             <i class="fa fa-sign-in"></i>
-                            Identificarse</a>
+                            Login</a>
                     </li>
                     <li ui-sref-active="active">
-                        <a ui-sref="root.logout" ng-click="navCollapsed = !navCollapsed">
+                        <a ui-sref="root.logout" ng-click="navCollapsed = !navCollapsed" style="color:white;">
                             <i class="fa fa-sign-out"></i>
-                            Salir</a>
+                            Logout</a>
                     </li>
                     <li ui-sref-active="active">
-                        <a ui-sref="root.infinite" ng-click="navCollapsed = !navCollapsed">
+                        <a ui-sref="root.buy" ng-click="navCollapsed = !navCollapsed" style="color:white;">
+                            <i class="fa fa-credit-card"></i>
+                            Comprar</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="root.sell" ng-click="navCollapsed = !navCollapsed" style="color:white;">
+                            <i class="fa fa-money"></i>
+                            Vender</a>
+                    </li>
+                    <!-- <li class="divider"></li> -->
+                    <li ui-sref-active="active">
+                        <a ui-sref="root.transactions" ng-click="navCollapsed = !navCollapsed" style="color:white;">
                             <i class="fa fa-shopping-cart"></i>
-                            Mis transacciones</a>
+                            Transacciones</a>
                     </li>
-                    <li class="divider"></li>
-                    <li ui-sref-active="active">
-                        <a ui-sref="root.myaccount" ng-click="navCollapsed = !navCollapsed">
-                            <i class="fa fa-user-md"></i>
-                            Area de usuario</a>
-                    </li>
-                </ul>-->
+                </ul>
             </li>
         </ul>
     </div><!-- /.navbar-collapse -->

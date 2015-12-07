@@ -1,0 +1,83 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="control-label">
+                        Nombre
+                    </label><p></p>
+                    <div class="">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">
+                        Descripción:
+                    </label><p></p>
+                    <div class="">
+                        <textarea class="form-control" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">
+                        Precio
+                    </label><p></p>
+                    <div class="">
+                        <input type="text" class="form-control form-horizontal" />
+                    </div>
+                </div>
+
+                <div class="from-group">
+                    <label class="control-label">
+                        Categoria
+                    </label>
+                    <div>
+                        <div ng-dropdown-multiselect="" options="example5data" selected-model="example5model" extra-settings="example5settings" translation-texts="example5customTexts"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12 text-left">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fa fa-save"></i> Salvar
+                        </button>
+                        <button type="submit" class="btn btn-warning">
+                            <i class="fa fa-ban"></i> Cancelar
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <div map-lazy-load="https://maps.google.com/maps/api/js">
+                <ng-map center="41,-87" zoom="3"></ng-map>
+            </div>
+            <form class="" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Introduce una dirección." />
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-search"></i> Buscar
+                </button>
+            </form>
+        </div>
+        <div class="col-md-4">
+
+            <div style="height: 305px">
+                <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+                    <uib-slide ng-repeat="slide in slides" active="slide.active">
+                        <img ng-src="{{slide.image}}" style="margin:auto;">
+                        <div class="carousel-caption">
+                            <h4>Slide {{$index}}</h4>
+                            <p>{{slide.text}}</p>
+                        </div>
+                    </uib-slide>
+                </uib-carousel>
+                <h4>Upload new Pictures</h4>
+                <div class="upload-drop-zone" id="drop-zone">
+                    Just drag and drop files here
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
