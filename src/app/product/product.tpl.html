@@ -6,7 +6,16 @@
                 <div class="col-md-6">
                     <div class="row-fluid">
                         <div class="col-md-12">
-                            <img src="http://lorempixel.com/900/900/animals" class="img-responsive borderradius">
+                            <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+                                <uib-slide ng-repeat="slide in slides" active="slide.active">
+                                    <img ng-src="{{slide.image}}" style="margin:auto;">
+                                    <div class="carousel-caption">
+                                        <h4>Slide {{$index}}</h4>
+                                        <p>{{slide.text}}</p>
+                                    </div>
+                                </uib-slide>
+                            </uib-carousel>
+                            <!--<img src="http://lorempixel.com/900/900/animals" class="img-responsive borderradius">-->
                         </div>
                     </div>
                     <div class="row-fluid">

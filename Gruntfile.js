@@ -90,14 +90,14 @@ module.exports = function (grunt) {
                 'vendor/angular-deckgrid/angular-deckgrid.js',
                 'vendor/ngmap/build/scripts/ng-map.min.js',
                 'vendor/lodash/lodash.js',
-                'vendor/angularjs-dropdown-multiselect/dist/angularjs-dropdown-multiselect.min.js'
+                'vendor/walladog-dropdown-multiselect/src/walladog-dropdown-multiselect.js',
             ],
             css: [
             ],
-            css2: [
-                'vendor/fontawesome/css/font-awesome.css'
-            ],
             assets: [
+            ],
+            fonts: [
+                'vendor/bootstrap/fonts'
             ]
         },
         extra_views: {
@@ -162,7 +162,22 @@ module.exports = function (grunt) {
                         cwd: '.',
                         expand: true,
                         flatten: true
+                    },
+                    {
+                        src: ['**'],
+                        dest: '<%= build_dir %>/fonts/',
+                        cwd: 'vendor/bootstrap/fonts',
+                        expand: true,
+                        flatten: true
+                    },
+                    {
+                        src: ['**'],
+                        dest: '<%= build_dir %>/fonts/',
+                        cwd: 'vendor/font-awesome/fonts',
+                        expand: true,
+                        flatten: true
                     }
+
                 ]
             },
             extra_templates: {
@@ -203,6 +218,20 @@ module.exports = function (grunt) {
                         dest: '<%= compile_dir %>/assets',
                         cwd: '<%= build_dir %>/assets',
                         expand: true
+                    },
+                    {
+                        src: ['**'],
+                        dest: '<%= compile_dir %>/fonts/',
+                        cwd: '<%= build_dir %>/fonts',
+                        expand: true,
+                        flatten: true
+                    },
+                    {
+                        src: ['*','**'],
+                        dest: '<%= compile_dir %>/vendor/',
+                        cwd: '<%= build_dir %>/vendor',
+                        expand: true,
+                        flatten: true
                     }
                 ]
             }
@@ -215,7 +244,6 @@ module.exports = function (grunt) {
             build_css: {
                 src: [
                     '<%= vendor_files.css %>',
-                    '<%= vendor_files.css2 %>',
                     '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css'
                 ],
                 dest: '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css'
@@ -421,7 +449,6 @@ module.exports = function (grunt) {
                 src: [
                     '<%= concat.compile_js.dest %>',
                     '<%= vendor_files.css %>',
-                    '<%= vendor_files.css2 %>',
                     '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css'
                 ]
             }

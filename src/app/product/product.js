@@ -41,12 +41,12 @@
             $scope.addSlide = function() {
                 var newWidth = 600 + slides.length + 1;
                 slides.push({
-                    image: '//placekitten.com/' + newWidth + '/300',
+                    image: '//lorempixel.com/' + newWidth + '/400/animals',
                     text: ['More','Extra','Lots of','Surplus'][slides.length % 4] + ' ' +
                     ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
                 });
             };
-            for (var i=0; i<4; i++) {
+            for (var i=0; i<10; i++) {
                 $scope.addSlide();
             }
             NgMap.getMap().then(function(map) {
@@ -66,12 +66,12 @@
             $scope.model = {};
             $scope.model.pageTitle = $state.current.data.pageTitle;
             $scope.myInterval = 5000;
-            $scope.noWrapSlides = true;
+            $scope.noWrapSlides = false;
             var slides = $scope.slides = [];
             $scope.addSlide = function() {
                 var newWidth = 600 + slides.length + 1;
                 slides.push({
-                    image: '//placekitten.com/' + newWidth + '/300',
+                    image: '//lorempixel.com/' + newWidth + '/400/animals',
                     text: ['More','Extra','Lots of','Surplus'][slides.length % 4] + ' ' +
                     ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
                 });
@@ -79,7 +79,7 @@
                 //Multiselect
                 $scope.example5model = []; $scope.example5data = [ {id: 1, label: "Chiwawa"}, {id: 2, label: "American Standford"}, {id: 3, label: "Doberman"}]; $scope.example5settings = {}; $scope.example5customTexts = {buttonDefaultText: 'Cual es la raza de tu perro?'};
             };
-            for (var i=0; i<4; i++) {
+            for (var i=0; i<10; i++) {
                 $scope.addSlide();
             }
             NgMap.getMap().then(function(map) {
