@@ -8,16 +8,23 @@ angular.module('cInterceptor', [])
                 return {
                     'request': function (config) {
                         config.headers = config.headers || {};
-
-                        //Get saved data of your custom header from sessionStorage
                         $rootScope.customHeader = sessionStorage.getItem(CUSTOM_HEADER);
 
-                        config.headers = {
-                            'Content-type': 'application/json;charset=UTF-8',
-                            'Authorization': 'Bearer 8H04j1yP28FfMiStIl0E4jA8gGI62g'
-                        };
+                        if(config.headers.Authorization){
+                            config.headers = {
+                                'Content-type': 'application/json;charset=UTF-8',
+                                //'Authorization': config.headers.Authorization
+                                'Authorization': 'Bearer 6LDDTFWqj5oIIugKJKSpd0TeW7Kc3c'
+                            };
+                        }else{
+                            config.headers = {
+                                'Content-type': 'application/json;charset=UTF-8',
+                                'Authorization': 'Bearer 6LDDTFWqj5oIIugKJKSpd0TeW7Kc3c'
 
-                        //Add custom header/data to request
+                            };
+                        }
+
+                        //config.headers['Authorization'] = 'Bearer 6LDDTFWqj5oIIugKJKSpd0TeW7Kc3c';
                         config.headers[CUSTOM_HEADER] = $rootScope.customHeader;
 
                         return config;

@@ -1,10 +1,22 @@
 (function (app) {
 
-    app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider','$resourceProvider',
-        function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider,$resourceProvider) {
+    app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider','$resourceProvider','localStorageServiceProvider',
+        function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider,$resourceProvider,localStorageServiceProvider) {
             $resourceProvider.defaults.stripTrailingSlashes = false;
             $urlRouterProvider.otherwise('/');
             $httpProvider.interceptors.push('cInterceptor');
+
+            //Config cookie system 1.0 2.0
+            localStorageServiceProvider
+                .setPrefix('walladog')
+                .setStorageType('localStorage')
+                .setStorageCookie(1, '/')
+                //.setStorageCookieDomain('walladog.com')
+                //For testing pruposals use empty string instade of walladog domain
+                .setStorageCookieDomain('')
+                .setNotify(true, true);
+
+
 
 
             //Root view, very important resolve data async before states
@@ -89,6 +101,8 @@
 }(angular.module("KRAngular", [
     'ngResource',
     'globalService',
+    'LocalStorageModule',
+    'cInterceptor',
     'configService',
     'genericDirectives',
     'KRAngular.home',
@@ -104,7 +118,6 @@
     'templates-hf',
     'ui.router.state',
     'ui.router',
-    'cInterceptor',
     'ngAnimate',
     'angularjs-dropdown-multiselect'
 ])));

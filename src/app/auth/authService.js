@@ -2,14 +2,19 @@
  * AuthService Módule
  */
 angular.module('authService', [])
-        .factory('authService', ['$resource', '$q', '$log',
-            function ($resource, $q, $log) {
+        .factory('authService', ['$resource', '$q', '$log','globalService',
+            function ($resource, $q, $log,globalService) {
                 return {
-                    api: function (extra_route) {
+                    api: function (extra_route,extra_data,api_endpoint,isOAUTH) {
                         if (!extra_route) {
                             extra_route = '';
                         }
-                        return $resource(API_URL + '/auth' + extra_route, {}, {
+                        var API_URL_VAR = API_URL;
+                        if(isOAUTH){
+                            API_URL_VAR = API_URL_OAUTH;
+                        }
+
+                        return $resource(API_URL_VAR + api_endpoint + extra_route, {}, {
                             query: {
                                 timeout: 15000
                             },
@@ -24,23 +29,25 @@ angular.module('authService', [])
                             put: {
                                 timeout: 15000,
                                 method: 'PUT'
+                            },
+                            postOauth2Login: {
+                                timeout: 15000,
+                                method: 'POST',
+                                headers:{'Authorization':'Basic '+extra_data},
+                                withCredentials: false
                             }
                         });
                     },
-                    getAuth: function () {
+                    doLoginOAuth2: function(loginData){
+                        var postDataToSend={
+                            grant_type:'password',
+                            username:loginData.username,
+                            password:loginData.password,
+                            scope:'read write'
+                        };
                         var def = $q.defer();
-                        this.api('?json=%5BJSON-code-to-validate%5D').get({}, {}, function (data) {
-                            $log.warn('Api::data:: ');
-                            $log.warn(data);
-                            def.resolve(data);
-                        }, function (err) {
-                            def.reject(err);
-                        });
-                        return def.promise;
-                    },
-                    doLogin: function (postData) {
-                        var def = $q.defer();
-                        this.api().post({}, postData, function (data) {
+                        var aHeader = globalService.base64Encode(CID+':'+CSE);
+                        this.api(false,aHeader,'/o/token/',true).postOauth2Login(postDataToSend, {}, function (data) {
                             def.resolve(data);
                         }, function (err) {
                             def.reject(err);
@@ -50,15 +57,6 @@ angular.module('authService', [])
                     doLogout: function (postData) {
                         var def = $q.defer();
                         this.api().post({}, postData, function (data) {
-                            def.resolve(data);
-                        }, function (err) {
-                            def.reject(err);
-                        });
-                        return def.promise;
-                    },
-                    updateData: function(putData){
-                        var def = $q.defer();
-                        this.api().put({}, putData, function (data) {
                             def.resolve(data);
                         }, function (err) {
                             def.reject(err);

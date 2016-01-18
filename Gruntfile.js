@@ -91,6 +91,7 @@ module.exports = function (grunt) {
                 'vendor/ngmap/build/scripts/ng-map.min.js',
                 'vendor/lodash/lodash.js',
                 'vendor/walladog-dropdown-multiselect/src/walladog-dropdown-multiselect.js',
+                'vendor/angular-local-storage/dist/angular-local-storage.js'
             ],
             css: [
             ],
