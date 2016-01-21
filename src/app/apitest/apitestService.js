@@ -9,7 +9,7 @@ angular.module('apitestService', [])
                         if (!extra_route) {
                             extra_route = '';
                         }
-                        return $resource(API_URL + '/products/' + extra_route, {}, {
+                        return $resource(API_URL + '/users/' + extra_route, {}, {
                             stripTrailingSlashes: false,
                             query: {
                                 timeout: 15000,
@@ -34,13 +34,9 @@ angular.module('apitestService', [])
                             $log.warn('Api::data:: ');
                             $log.warn(data);
 
-                            data.forEach(function(item){
-                                console.log(item);
-                            });
-
                             def.resolve(data);
                         }, function (err) {
-                            def.reject(err);
+                            def.reject(err,def.promise);
                         });
                         return def.promise;
                     },

@@ -8,7 +8,7 @@
 
             //Config cookie system 1.0 2.0
             localStorageServiceProvider
-                .setPrefix('walladog')
+                .setPrefix('')
                 .setStorageType('localStorage')
                 .setStorageCookie(1, '/')
                 //.setStorageCookieDomain('walladog.com')
@@ -84,6 +84,9 @@
 
     app.controller('AppController', ['$scope', '$log', function ($scope, $log) {
         $log.info('App:: Starting AppController');
+
+
+
     }]);
 
     app.controller('FrontController', ['$scope', '$log','$location', function ($scope, $log,$location) {

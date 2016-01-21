@@ -34,12 +34,6 @@ angular.module('productsService', [])
                     //Service action with promise resolve (then)
                     var def = $q.defer();
                     this.api().get({}, {}, function (data) {
-/*
-                        data.forEach(function(item){
-                            console.log(item);
-                        });
-*/
-
                         def.resolve(data);
                     }, function (err) {
                         def.reject(err);

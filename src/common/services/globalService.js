@@ -2,42 +2,9 @@
  * Global Services Test Módule
  */
 angular.module('globalService', ['LocalStorageModule'])
-        .factory('globalService', ['$resource', '$q', '$log','localStorageService',
-            function ($resource, $q, $log,localStorageService) {
+        .factory('globalService', ['$q', '$log','localStorageService',
+            function ($q, $log,localStorageService) {
                 return {
-                    api: function (extra_route) {
-                        if (!extra_route) {
-                            extra_route = '';
-                        }
-                        return $resource(API_URL + '/' + extra_route, {}, {
-                            query: {
-                                timeout: 15000
-                            },
-                            save: {
-                                timeout: 15000,
-                                method: 'POST'
-                            },
-                            get: {
-                                timeout: 15000,
-                                method: 'GET'
-                            }
-                        });
-                    },
-                    getAction: function () {
-                        //Service action with promise resolve (then)
-                        var def = $q.defer();
-                        this.api().get({}, {}, function (data) {
-                            $log.warn('Api::data:: ');
-                            $log.warn(data);
-                            def.resolve(data);
-                        }, function (err) {
-                            def.reject(err);
-                        });
-                        return def.promise;
-                    },
-                    testFunction: function () {
-                        alert('testFunction');
-                    },
                     getUrlParam: function (parameterName) {
                         parameterName += "=";
                         var parameterValue = (location.hash.indexOf(parameterName)) ? location.hash.substring(location.hash.indexOf(parameterName) + parameterName.length) : null;
@@ -46,20 +13,48 @@ angular.module('globalService', ['LocalStorageModule'])
                         }
                         return parameterValue;
                     },
-                    setStorageItem: function(){
-                        if(localStorageService.isSupported()){
-
-                        }else if(localStorageService.cookie.isSupported()){
-
+                    setStorageItem: function(key,value,expireCookieDays){
+                        var v = JSON.stringify(value);
+                        if(localStorageService.isSupported){
+                            return localStorageService.set(key,v);
+                        }else if(localStorageService.cookie.isSupported){
+                            if(expireCookieDays) {
+                                return localStorageService.cookie.set(key, value, expireCookieDays);
+                            } else {
+                                return localStorageService.cookie.set(key, value,1);
+                            }
                         }else{
-                            //Ya nos podemos guardar la variable en el culo
+                            alert('Unable to save cookie or localStorage in your browser');
+                            return false;
                         }
                     },
-                    getStorageItem: function(){
-
+                    getStorageItem: function(key){
+                        var item = '';
+                        var value = {};
+                        if(localStorageService.isSupported){
+                            value = localStorageService.get(key);
+                        }else if(localStorageService.cookie.isSupported){
+                            value = localStorageService.cookie.get(key);
+                        }else{
+                            alert('No storage and cookies aviable for your browser');
+                        }
+                        if(value) {
+                            return JSON.parse(value);
+                        } else {
+                            return {};
+                        }
+                    },
+                    removeStorage: function(key){
+                        if(localStorageService.isSupported){
+                            return localStorageService.remove(key);
+                        }else if(localStorageService.cookie.isSupported){
+                            return localStorageService.cookie.remove(key);
+                        }else{
+                            return false;
+                        }
                     },
                     clearStorage: function(){
-
+                        return localStorageService.clearAll();
                     },
                     base64Encode: function(data){
                             var b64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';

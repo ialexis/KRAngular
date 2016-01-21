@@ -14,3 +14,5 @@ var CUSTOM_HEADER = 'Accept-Language';
 
 var CID = "uEAoxVEYOVmpg4Z8IAyCCEItlXO8Cf4G7RSu647d";
 var CSE = "Zc0JGu5pVUt7zNxrhQaCvit6ydr4WxMVI4nXluF9GBWgJV0rbUcR5y2uBZl3TgmLYryashJREp9AiIkbfRUVv5Cdd3n6ZX4Va3fI2cmvMwcgWRFYnrp7K8ZtwkopXrhV";
+
+var TOKEN_NAME = "";

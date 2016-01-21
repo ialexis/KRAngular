@@ -48,14 +48,6 @@
         };
 
         init();
-
-        console.log(productsService);
-
-
-        productsService.getAction().then(function(data){
-            console.log(data);
-        });
-
     }]);
 }(angular.module("KRAngular.home", [
     'ui.router',
