@@ -63,7 +63,7 @@ angular.module('cInterceptor', [])
                     }
                 }else{
                     alert('Debes autenticarte para realizar esta peticion');
-                    state.go('root.auth');
+                    //state.go('root.auth');
                 }
                 return $q.reject(rejection);
             }

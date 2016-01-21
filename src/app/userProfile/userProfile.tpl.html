@@ -1,0 +1,79 @@
+<h1>Wellcome to Walladog, user Profile</h1>
+
+<p>Code it up for module : <strong>{{model.pageTitle}}</strong></p>
+
+<button class="btn btn-primary" ng-click="" ui-sref="root.home">go Home</button>
+<p>&nbsp;</p>
+<div class="row">
+    <div class="col-md-4">
+        <div class="photo-wrapper">
+
+            <div class="row-fluid" style="background-color: grey;">
+                <div class="col-md-12 borderradius" style="background: none;padding-top: 18px;">
+                    <div class="row-fluid borderradius" style="text-align:left;background-color:grey;">
+                        <div class="col-md-3"  style="float:left;"><img src="http://lorempixel.com/100/100/people" width="75" class="img-circle"></div>
+                        <div class="col-md-8" style="float:right;">Steve Cook<br>Su casa<br>23 compras/12 Ventas</div>
+                    </div>
+
+                </div>
+
+            </div>
+            <p>&nbsp;</p>
+            <button class="btn btn-primary" ng-click="dameProductosVenta()" ui-sref="root.userProfile">En Venta</button>
+            <br><br>
+            <button class="btn btn-primary" ng-click="" ui-sref="root.userProfile">Vendido</button>
+            <br><br>
+            <button class="btn btn-primary" ng-click="" ui-sref="root.userProfile">Busquedas</button>
+            <br><br><br>
+            <button class="btn btn-primary" ng-click="" ui-sref="root.userProfile">Editar Perfil</button>
+            <br><br>
+            <button class="btn btn-primary" ng-click="" ui-sref="root.userProfile">Notificaciones</button>
+        </div>
+    </div>
+
+
+
+    <div class="col-md-8">
+        <div class="container-fluid">
+            <div class="row">
+
+
+                <div class="col-xs-6 col-sm-2"><img src="http://lorempixel.com/100/100/animals" width="100" class="img-responsive"><br></div>
+                <div class="col-xs-6 col-sm-2"><img src="http://lorempixel.com/100/100/animals" width="100" class="img-responsive"><br></div>
+                <div class="col-xs-6 col-sm-2"><img src="http://lorempixel.com/100/100/animals" width="100" class="img-responsive"><br></div>
+                <div class="col-xs-6 col-sm-2"><img src="http://lorempixel.com/100/100/animals" width="100" class="img-responsive"><br></div>
+                <div class="col-xs-6 col-sm-2"><img src="http://lorempixel.com/100/100/animals" width="100" class="img-responsive"><br></div>
+                <div class="col-xs-6 col-sm-2"><img src="http://lorempixel.com/100/100/animals" width="100" class="img-responsive"><br></div>
+                <ul>
+                    <li ng-repeat="item in model">
+                          {{ item.price }}
+                     </li>
+                </ul>
+                  <!--  <div id="container" style="float:left;" class="hidden-xs">
+                        <div ><img src="http://lorempixel.com/100/100/animals" width="100" class="img-responsive"></div>
+                        <div ><img src="http://lorempixel.com/100/100/animals" width="100" class="img-responsive"></div>
+                        <div ><img src="http://lorempixel.com/100/100/animals" width="100" class="img-responsive"></div>
+                        <div ><img src="http://lorempixel.com/100/100/animals" width="100" class="img-responsive"></div>
+                        <div ><img src="http://lorempixel.com/100/100/animals" width="100" class="img-responsive"></div>
+                    </div>
+                    <div id="container" style="float:left;" class="hidden-xs">
+                        <div ><img src="http://lorempixel.com/100/100/animals" width="100" class="img-responsive"></div>
+                        <div ><img src="http://lorempixel.com/100/100/animals" width="100" class="img-responsive"></div>
+                        <div ><img src="http://lorempixel.com/100/100/animals" width="100" class="img-responsive"></div>
+                        <div ><img src="http://lorempixel.com/100/100/animals" width="100" class="img-responsive"></div>
+                        <div ><img src="http://lorempixel.com/100/100/animals" width="100" class="img-responsive"></div>
+                    </div>
+                    <div id="container" style="float:left;" class="hidden-xs">
+                        <div ><img src="http://lorempixel.com/100/100/animals" width="100" class="img-responsive"></div>
+                        <div ><img src="http://lorempixel.com/100/100/animals" width="100" class="img-responsive"></div>
+                        <div ><img src="http://lorempixel.com/100/100/animals" width="100" class="img-responsive"></div>
+                        <div ><img src="http://lorempixel.com/100/100/animals" width="100" class="img-responsive"></div>
+                        <div ><img src="http://lorempixel.com/100/100/animals" width="100" class="img-responsive"></div>
+                    </div>-->
+                </div>
+
+            <!--<img src="http://lorempixel.com/900/900/animals" class="img-responsive borderradius">-->
+        </div>
+    </div>
+
+</div>
