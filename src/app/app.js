@@ -115,6 +115,7 @@
     'KRAngular.apitest',
     'KRAngular.infinite',
     'KRAngular.auth',
+    'KRAngular.uprofile',
     'ui.bootstrap',
     'templates-app',
     'templates-common',
