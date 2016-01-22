@@ -17,7 +17,7 @@
                     });
         }]);
 
-    app.controller('userProfileController', ['$scope', '$log','$state','userProfileService' ,function ($scope, $log,$state,userProfileService) {
+    app.controller('userProfileController', ['$scope', '$log','$state','userProfileService','userProfileSearchsService','userProfileTransactionsService' ,function ($scope, $log,$state,userProfileService,userProfileSearchsService,userProfileTransactionsService) {
             $log.info('App:: Starting userProfileController');
 
         var init;
@@ -32,6 +32,16 @@
             });
         };
 
+        $scope.dameProductosVendidos=function ()
+        {
+            userProfileTransactionsService.getAction().then(function(data){
+                $log.info(data);
+                $scope.model=data;
+            });
+        };
+
+
+
         init = function () {
             $scope.model = {};
             $scope.model.pageTitle = $state.current.data.pageTitle;
@@ -42,6 +52,8 @@
 
 }(angular.module("KRAngular.userProfile", [
     'ui.router',
-    'userProfileService'
+    'userProfileService',
+    'userProfileTransactionsService',
+    'userProfileSearchsService'
 ])));
 

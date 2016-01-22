@@ -1,8 +1,8 @@
 /* 
  * Api Test Módule
  */
-angular.module('userProfileTransactionsService', [])
-    .factory('userProfileTransactionsService', ['$resource', '$q', '$log',
+angular.module('userProfileSearchsService', [])
+    .factory('userProfileSearchsService', ['$resource', '$q', '$log',
         function ($resource, $q, $log) {
             return {
                 api: function (extra_route) {

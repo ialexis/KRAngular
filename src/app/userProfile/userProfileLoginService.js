@@ -1,15 +1,15 @@
 /* 
  * Api Test Módule
  */
-angular.module('userProfileTransactionsService', [])
-    .factory('userProfileTransactionsService', ['$resource', '$q', '$log',
+angular.module('userProfileLoginService', [])
+    .factory('userProfileLoginService', ['$resource', '$q', '$log',
         function ($resource, $q, $log) {
             return {
                 api: function (extra_route) {
                     if (!extra_route) {
                         extra_route = '';
                     }
-                    return $resource(API_URL + '/transactions/' + extra_route, {}, {
+                    return $resource(API_URL + '/logins/' + extra_route, {}, {
                         stripTrailingSlashes: false,
                         query: {
                             timeout: 15000,
