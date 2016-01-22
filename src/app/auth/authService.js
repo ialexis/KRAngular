@@ -12,6 +12,7 @@ angular.module('authService', [])
                     var API_URL_VAR = API_URL;
                     if(isOAUTH){
                         API_URL_VAR = API_URL_OAUTH;
+                        console.log('rewrite');
                     }
 
                     return $resource(API_URL_VAR + api_endpoint + extra_route, {}, {
@@ -59,8 +60,11 @@ angular.module('authService', [])
                             $rootScope.uData.wcookier = data.refresh_token;
                             globalService.setStorageItem('wcookie',data.access_token);
                             globalService.setStorageItem('wcookier',data.refresh_token);
+                            def.resolve(data);
+                        }else{
+                            $log.info('No token recived from oAuth Server');
                         }
-                        def.resolve(data);
+
                     }, function (err) {
                         def.reject(err);
                     });
@@ -94,6 +98,15 @@ angular.module('authService', [])
                 doLogout: function (postData) {
                     var def = $q.defer();
                     this.api().post({}, postData, function (data) {
+                        def.resolve(data);
+                    }, function (err) {
+                        def.reject(err);
+                    });
+                    return def.promise;
+                },
+                doRegister: function(postData){
+                    var def = $q.defer();
+                    this.api(false,null,'/users/',false).save({}, postData, function (data) {
                         def.resolve(data);
                     }, function (err) {
                         def.reject(err);

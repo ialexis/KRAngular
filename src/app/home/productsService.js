@@ -30,7 +30,7 @@ angular.module('productsService', [])
                 myFunction: function(){
                     alert('hola');
                 },
-                getAction: function () {
+                getProducts: function () {
                     //Service action with promise resolve (then)
                     var def = $q.defer();
                     this.api().get({}, {}, function (data) {

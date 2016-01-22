@@ -24,8 +24,6 @@
         $scope.dameProductosVenta=function ()
         {
 
-
-
             userProfileService.getAction().then(function(data){
                $log.info(data);
                 $scope.model=data;

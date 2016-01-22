@@ -13,8 +13,14 @@ angular.module('configService', [])
                         isLogged:false,
                         wcookie:false,
                         wcookier:false,
-                        userName:'unknown',
-                        csrftoken:''
+                        userId:false,
+                        userName:'Identificate',
+                        csrftoken:false,
+                        firstName:false,
+                        lastnNme:false,
+                        email:false,
+                        avatar:false
+
                     };
 
                     var wtoken = globalService.getStorageItem('wcookie');

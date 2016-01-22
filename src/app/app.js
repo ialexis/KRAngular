@@ -116,6 +116,7 @@
     'KRAngular.infinite',
     'KRAngular.auth',
     'KRAngular.userProfile',
+    'KRAngular.uprofile',
     'ui.bootstrap',
     'templates-app',
     'templates-common',

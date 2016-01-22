@@ -62,8 +62,10 @@ angular.module('cInterceptor', [])
                         state.go('root.auth');
                     }
                 }else{
-                    alert('Debes autenticarte para realizar esta peticion');
+                  //  alert('Debes autenticarte para realizar esta peticion');
                     //state.go('root.auth');
+                    $log.warn('Error en la peticion interceptado');
+
                 }
                 return $q.reject(rejection);
             }
